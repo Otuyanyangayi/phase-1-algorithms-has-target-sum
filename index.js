@@ -1,9 +1,21 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+for (let i = 0; i < array.length; i++){
+  const complement = target - array[i]
+  for (let j = i + 1; j < array.length; j++){
+    if (array[j]  === complement)
+      return true
+    
+  }
+  
 }
+return false 
+}
+
 
 /* 
   Write the Big O time complexity of your function here
+  O(n * n)
 */
 
 /* 
@@ -12,6 +24,10 @@ function hasTargetSum(array, target) {
 
 /*
   Add written explanation of your solution here
+  this code iterates over an array of numbers . it then i dentifys a number that 
+  add to the target. it iterates over the remaining numbers checking if it can find 
+  the compliment. if it finds it it will return true otherwise it will return 
+  false  
 */
 
 // You can run `node index.js` to view these console logs
@@ -29,6 +45,23 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", hasTargetSum([1, 2, 5], 4));
+
+  console.log("");
+
+  console.log("");
+  // Negative numbers?
+  console.log("Expecting: true");
+  console.log("=>", hasTargetSum([-7, 10, 4, 8], 3));
+
+  console.log("");
+  // Multiple pairs?
+  console.log("Expecting: true");
+  console.log("=>", hasTargetSum([1, 2, 3, 4], 5));
+
+  console.log("");
+  // Single numbers?
+  console.log("Expecting: false");
+  console.log("=>", hasTargetSum([4], 4));
 }
 
 module.exports = hasTargetSum;
